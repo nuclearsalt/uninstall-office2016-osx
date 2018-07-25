@@ -37,22 +37,21 @@ if [[ $choice = "Y" || $choice = "y" ]] ; then
 	mv ~/Library/Group\ Containers/UBF8T346G9.Office ~/.Trash
 	mv ~/Library/Group\ Containers/UBF8T346G9.OfficeOsfWebHost ~/.Trash
 
-#   Echo "Done Uninstalling."
-#	osascript -e 'tell application (path to frontmost application as text) to display dialog "Office 2016 has been uninstalled. You may now go back to...uhhh...whatever it is you were doing. Yeah." buttons {"OK"} with icon caution'
+	## empty trash
 	
 	read -p "Do you want to empty the Trash? y/n " empty
 
 	if [[ $empty = "y" || $empty = "Y" ]] ; then
 		sudo rm -R ~/.Trash/*
-		Echo "Trash has been emptied. Office 2016 uninstall is complete."
+		Echo "The trash has been emptied, unlike the one in your kitchen. Office 2016 uninstall is complete."
 	else
-		exit 0
-		Echo "Office 2016 uninstall is complete. You may now return to your regularly scheduled programming."
+		Echo "Office 2016 uninstall is complete. You may now return to looking at memes on the internet"
+		exit 0	
 	fi
 
 
 else
-	echo "Office will not be uninstalled."	
+	echo "Office will not be uninstalled. Office will not be told what to do."	
 	exit 1
 fi
 
