@@ -10,12 +10,9 @@ read -p "Do you want to completely uninstall Microsoft Office 2016? Y/N? " choic
 if [[ $choice = "Y" || $choice = "y" ]] ; then
 	echo "Starting Office Removal Script. Please enter password"
 
-	# Move office apps to the trash
+	# Move office apps to the OfficeFileDump folder
 
 	mkdir ~/OfficeFileDump
-
-	## mv will not put the files inthe Trash if the Trash folder is not empty
-	## rsync -a --remove-source-files skips 'non-regular' files, and tehrefore cannot remove the source folders
 
 	sudo mv -v /Applications/Microsoft\ Excel.app ~/OfficeFileDump/
 	sudo mv -v /Applications/Microsoft\ OneNote.app ~/OfficeFileDump/
@@ -23,7 +20,7 @@ if [[ $choice = "Y" || $choice = "y" ]] ; then
 	sudo mv -v /Applications/Microsoft\ Powerpoint.app ~/OfficeFileDump/
 	sudo mv -v /Applications/Microsoft\ Word.app ~/OfficeFileDump/
 
-	# Move files from user library to trash
+	# Move files from user library to OfficeFileDump folder
 
 	mv -v ~/Library/Containers/com.microsoft.errorreporting ~/OfficeFileDump/
 	mv -v ~/Library/Containers/com.microsoft.Excel ~/OfficeFileDump/
@@ -35,21 +32,21 @@ if [[ $choice = "Y" || $choice = "y" ]] ; then
 	mv -v ~/Library/Containers/com.microsoft.Word ~/OfficeFileDump/
 	mv -v ~/Library/Containers/com.microsoft.onenote.mac ~/OfficeFileDump/
 
-	# Move more files from user library to trash
+	# Move more files from user library to OfficeFileDump folder
 
 	mv -v ~/Library/Group\ Containers/UBF8T346G9.ms ~/OfficeFileDump/
 	mv -v ~/Library/Group\ Containers/UBF8T346G9.Office ~/OfficeFileDump/
 	mv -v ~/Library/Group\ Containers/UBF8T346G9.OfficeOsfWebHost ~/OfficeFileDump/
 
-	# test out this rsync from here
+	# Move OfficeFileDump folder to Trash
+
 	sudo chown -R $USER:staff ~/OfficeFileDump
 	sudo chmod -R 755 ~/OfficeFileDump
 	echo "Please wait. This may take a while..."
 	sudo rsync -a --remove-source-files ~/OfficeFileDump ~/.Trash/ && rm -R ~/OfficeFileDump
 
 
-
-	## empty trash
+	## choose whether or not to empty trash
 	
 	read -p "Do you want to empty the Trash? y/n " empty
 
