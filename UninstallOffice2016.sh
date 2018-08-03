@@ -19,6 +19,7 @@ if [[ $choice = "Y" || $choice = "y" ]] ; then
 	sudo mv -v /Applications/Microsoft\ Outlook.app ~/OfficeFileDump/
 	sudo mv -v /Applications/Microsoft\ Powerpoint.app ~/OfficeFileDump/
 	sudo mv -v /Applications/Microsoft\ Word.app ~/OfficeFileDump/
+	sudo mv -v /Applications/OneDrive.app ~/OfficeFileDump/
 
 	# Move files from user library to OfficeFileDump folder
 
@@ -53,9 +54,13 @@ if [[ $choice = "Y" || $choice = "y" ]] ; then
 	if [[ $empty = "y" || $empty = "Y" ]] ; then
 		Echo "Please wait. Thanks."
 		sudo rm -R ~/.Trash/*
-		Echo "The trash has been emptied, unlike the one in your kitchen. Office 2016 uninstall is complete."
+		Echo "The trash has been emptied, unlike the one in your kitchen."
+		sleep 2 
+		echo "Office 2016 uninstall is complete."
 	else
-		Echo "Office 2016 uninstall is complete. You may now return to looking at memes on the internet"
+		Echo "Office 2016 uninstall is complete." 
+		sleep 2
+		echo "You may now return to looking at memes on the internet"
 		exit 0	
 	fi
 
