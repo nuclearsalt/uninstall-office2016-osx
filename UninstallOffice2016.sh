@@ -56,11 +56,10 @@ if [[ $choice = "Y" || $choice = "y" ]] ; then
 		sudo rm -R ~/.Trash/*
 		Echo "The trash has been emptied, unlike the one in your kitchen."
 		sleep 2 
-		echo "Office 2016 uninstall is complete."
+		echo "Office 2016 uninstall is complete. You may now return to looking at memes on the internet"
 	else
 		Echo "Office 2016 uninstall is complete." 
 		sleep 2
-		echo "You may now return to looking at memes on the internet"
 		exit 0	
 	fi
 
